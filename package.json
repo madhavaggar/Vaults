@@ -1,65 +1,40 @@
 {
-  "name": "contract-template",
+  "name": "harvest",
   "version": "1.0.0",
-  "description": "Smart contract project",
+  "description": "",
+  "main": "null",
   "scripts": {
-    "setup": "git config core.hooksPath .githooks",
-    "compile": "rm -rf './build' && truffle compile",
-    "typechain": "yarn compile && rm -rf './@types/generated' && typechain --target=truffle-v5 --outDir './@types/generated' 'build/contracts/**/*.json'",
-    "typecheck": "tsc -p . --noEmit",
-    "lint": "eslint --ext '.js,.ts' './**/*.{j,t}s'",
-    "fmt": "prettier --write './**/*.sol' './**/*.js' './**/*.ts' './**/*.json' './**/*.md'",
-    "ganache": "ganache-cli --accounts=15 --deterministic --defaultBalanceEther=1000000 --quiet",
-    "test": "truffle test",
-    "coverage": "truffle run coverage",
-    "solhint": "solhint 'contracts/**/*.sol'",
-    "precommit": "yarn typechain && yarn fmt && yarn typecheck && yarn lint && yarn solhint",
-    "slither": "slither --solc-disable-warnings --disable-color --exclude-dependencies ."
+    "test": "npx truffle test",
+    "test-cov": "export RUNNING_COVERAGE=True && truffle run coverage --network=development",
+    "test-mainnet-only": "truffle build && export MAINNET_FORK=True && npx truffle test ./test/mainnet-fork-test-basic.js ./test/mainnet-fork-test-curve-dai.js ./test/mainnet-fork-test-curve-usdc.js ./test/mainnet-fork-test-curve-usdt.js ./test/mainnet-fork-test-snxReward.js",
+    "test-mainnet-e2e": "truffle build && export MAINNET_E2E=True && npx truffle test ./test/mainnet-e2e.js"
   },
-  "contributors": [
-    "petejkim <pete.kim@coinbase.com>"
-  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CoinbaseStablecoin/contract-template.git"
+    "url": "git+https://github.com/harvest-finance/harvest.git"
   },
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CoinbaseStablecoin/contract-template/issues"
+    "url": "https://github.com/harvest-finance/harvest/issues"
   },
-  "homepage": "https://github.com/CoinbaseStablecoin/contract-template#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/core": "^7.12.9",
+    "@openzeppelin/contracts": "^2.5.1",
+    "@openzeppelin/contracts-ethereum-package": "^2.5.0",
+    "@openzeppelin/upgrades": "^2.8.0",
+    "@studydefi/money-legos": "^2.3.7",
+    "@truffle/hdwallet-provider": "1.0.42",
+    "dotenv": "^8.2.0",
+    "ganache-cli": "^6.10.1",
+    "prettier": "^2.0.5",
+    "solidity-coverage": "^0.7.12",
+    "truffle": "^5.1.55",
+    "truffle-flattener": "^1.4.4"
+  },
+  "homepage": "https://github.com/harvest-finance/harvest#readme",
   "devDependencies": {
-    "@openzeppelin/contracts": "^3.1.0",
-    "@truffle/hdwallet-provider": "^1.0.39",
-    "@typechain/truffle-v5": "^2.0.2",
-    "@types/chai": "^4.2.11",
-    "@types/mocha": "^8.0.0",
-    "@typescript-eslint/eslint-plugin": "^3.7.0",
-    "@typescript-eslint/parser": "^3.7.0",
-    "chai": "^4.2.0",
-    "eslint": "^7.5.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "ganache-cli": "^6.9.1",
-    "prettier": "2.0.5",
-    "prettier-plugin-solidity": "1.0.0-alpha.54",
-    "solc": "0.6.11",
-    "solhint": "^3.1.0",
-    "solidity-coverage": "^0.7.9",
-    "truffle": "^5.1.35",
-    "ts-node": "^8.10.2",
-    "typechain": "^2.0.0",
-    "typescript": "^3.9.7",
-    "web3": "^1.2.11"
-  },
-  "engines": {
-    "node": ">= 12.0.0",
-    "yarn": ">= 1.21.1"
+    "@openzeppelin/test-helpers": "^0.5.6",
+    "@openzeppelin/truffle-upgrades": "^1.3.0"
   }
 }
