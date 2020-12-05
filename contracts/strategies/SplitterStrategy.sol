@@ -30,10 +30,10 @@ contract SplitterStrategy is IStrategy, Controllable {
   address[] public withdrawalOrder;
 
   address public futureStrategy;
-  uint256 public strategyWhitelistTime;
+  //uint256 public strategyWhitelistTime;
 
   uint256 public investmentRatioDenominator = 10000;
-  uint256 public whitelistStrategyTimeLock = 12 hours;
+  //uint256 public whitelistStrategyTimeLock = 12 hours;
   bool public isInitialized = false;
 
   event StrategyWhitelisted(
@@ -245,9 +245,9 @@ contract SplitterStrategy is IStrategy, Controllable {
     IStrategy(_strategy).doHardWork();
   }
 
-  function _setStrategyWhitelistTime(uint256 _strategyWhitelistTime) internal {
+  /*function _setStrategyWhitelistTime(uint256 _strategyWhitelistTime) internal {
     strategyWhitelistTime = _strategyWhitelistTime;
-  }
+  }*/
 
   function _setFutureStrategy(address _futureStrategy) internal {
     futureStrategy = _futureStrategy;
@@ -258,9 +258,9 @@ contract SplitterStrategy is IStrategy, Controllable {
   }
 
   function canWhitelistStrategy(address _strategy) public view returns (bool) {
-    return (_strategy == futureStrategy
-      && block.timestamp > strategyWhitelistTime
-      && strategyWhitelistTime > 0); // or the timelock has passed
+    return (_strategy == futureStrategy);
+      //&& block.timestamp > strategyWhitelistTime
+      //&& strategyWhitelistTime > 0); // or the timelock has passed
   }
 
   /**
@@ -272,8 +272,8 @@ contract SplitterStrategy is IStrategy, Controllable {
     require(IStrategy(_strategy).vault() == address(this), "The strategy does not belong to this splitter");
 
     // records a new timestamp
-    uint256 when = block.timestamp.add(whitelistStrategyTimeLock);
-    _setStrategyWhitelistTime(when);
+    //uint256 when = block.timestamp.add(whitelistStrategyTimeLock);
+    //_setStrategyWhitelistTime(when);
     _setFutureStrategy(_strategy);
     emit StrategyWhitelistAnnounced(_strategy, when);
   }
@@ -282,7 +282,7 @@ contract SplitterStrategy is IStrategy, Controllable {
   * Finalizes (or cancels) the strategy update by resetting the data
   */
   function finalizeStrategyWhitelist() public onlyGovernance {
-    _setStrategyWhitelistTime(0);
+    //_setStrategyWhitelistTime(0);
     _setFutureStrategy(address(0));
   }
 
@@ -317,7 +317,7 @@ contract SplitterStrategy is IStrategy, Controllable {
   */
   function whitelistStrategy(address _strategy) public onlyGovernance {
     require(canWhitelistStrategy(_strategy),
-      "The strategy exists and switch timelock did not elapse yet");
+      "The strategy exists");
 
     require(_strategy != address(0), "_strategy cannot be 0x0");
     require(IStrategy(_strategy).underlying() == address(underlying), "Underlying of splitter must match Strategy underlying");
