@@ -1,0 +1,168 @@
+{
+  "contractName": "IMigrator",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "pullFromStrategy",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"pullFromStrategy\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/madhav/Vaults/contracts/hardworkInterface/IMigrator.sol\":\"IMigrator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":150},\"remappings\":[]},\"sources\":{\"/home/madhav/Vaults/contracts/hardworkInterface/IMigrator.sol\":{\"keccak256\":\"0x5a73e2e0efaefde3b9a9cfc6d42a2bbf8ae4ba725018ff178fe57b1f2ee6a867\",\"urls\":[\"bzz-raw://e6ad17ddccba035aa15b9611a146f4cb5629bd93415605fad287d333b4d09544\",\"dweb:/ipfs/QmZ62mkHQFEGMXXAieHsP4vWgEzAQ3fTWp5J8svkKEVoyx\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity 0.5.16;\n\ninterface IMigrator {\n    function pullFromStrategy() external;\n}\n",
+  "sourcePath": "/home/madhav/Vaults/contracts/hardworkInterface/IMigrator.sol",
+  "ast": {
+    "absolutePath": "/home/madhav/Vaults/contracts/hardworkInterface/IMigrator.sol",
+    "exportedSymbols": {
+      "IMigrator": [
+        5601
+      ]
+    },
+    "id": 5602,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5597,
+        "literals": [
+          "solidity",
+          "0.5",
+          ".16"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:20"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 5601,
+        "linearizedBaseContracts": [
+          5601
+        ],
+        "name": "IMigrator",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 5600,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "pullFromStrategy",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5598,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "76:2:20"
+            },
+            "returnParameters": {
+              "id": 5599,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "87:0:20"
+            },
+            "scope": 5601,
+            "src": "51:37:20",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5602,
+        "src": "25:65:20"
+      }
+    ],
+    "src": "0:91:20"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/madhav/Vaults/contracts/hardworkInterface/IMigrator.sol",
+    "exportedSymbols": {
+      "IMigrator": [
+        5601
+      ]
+    },
+    "id": 5602,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5597,
+        "literals": [
+          "solidity",
+          "0.5",
+          ".16"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:20"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 5601,
+        "linearizedBaseContracts": [
+          5601
+        ],
+        "name": "IMigrator",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 5600,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "pullFromStrategy",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5598,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "76:2:20"
+            },
+            "returnParameters": {
+              "id": 5599,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "87:0:20"
+            },
+            "scope": 5601,
+            "src": "51:37:20",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5602,
+        "src": "25:65:20"
+      }
+    ],
+    "src": "0:91:20"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-12-05T16:27:34.936Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

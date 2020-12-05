@@ -275,7 +275,7 @@ contract SplitterStrategy is IStrategy, Controllable {
     //uint256 when = block.timestamp.add(whitelistStrategyTimeLock);
     //_setStrategyWhitelistTime(when);
     _setFutureStrategy(_strategy);
-    emit StrategyWhitelistAnnounced(_strategy, when);
+    //emit StrategyWhitelistAnnounced(_strategy, when);
   }
 
   /**

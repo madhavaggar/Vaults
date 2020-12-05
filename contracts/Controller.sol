@@ -7,9 +7,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./hardworkInterface/IController.sol";
 import "./hardworkInterface/IStrategy.sol";
 import "./hardworkInterface/IVault.sol";
-import "./FeeRewardForwarder.sol";
 import "./Governable.sol";
-import "./HardRewards.sol";
 
 contract Controller is IController, Governable {
 
@@ -35,7 +33,7 @@ contract Controller is IController, Governable {
     mapping (address => bool) public vaults;
 
     // Rewards for hard work. Nullable.
-    HardRewards public hardRewards;
+    // HardRewards public hardRewards;
 
     uint256 public constant profitSharingNumerator = 5;
     uint256 public constant profitSharingDenominator = 100;
@@ -142,10 +140,10 @@ contract Controller is IController, Governable {
     validVault(_vault) {
         uint256 oldSharePrice = IVault(_vault).getPricePerFullShare();
         IVault(_vault).doHardWork();
-        if (address(hardRewards) != address(0)) {
+        /*if (address(hardRewards) != address(0)) {
             // rewards are an option now
             hardRewards.rewardMe(msg.sender, _vault);
-        }
+        }*/
         emit SharePriceChangeLog(
           _vault,
           IVault(_vault).strategy(),
@@ -178,9 +176,9 @@ contract Controller is IController, Governable {
         IVault(_vault).setStrategy(strategy);
     }
 
-    function setHardRewards(address _hardRewards) external onlyGovernance {
+    /*function setHardRewards(address _hardRewards) external onlyGovernance {
         hardRewards = HardRewards(_hardRewards);
-    }
+    }*/
 
     // transfers token in the controller contract to the governance
     function salvage(address _token, uint256 _amount) external onlyGovernance {
@@ -194,12 +192,12 @@ contract Controller is IController, Governable {
         IStrategy(_strategy).salvage(governance(), _token, _amount);
     }
 
-    function notifyFee(address underlying, uint256 fee) external {
+    /*function notifyFee(address underlying, uint256 fee) external {
       if (fee > 0) {
         IERC20(underlying).safeTransferFrom(msg.sender, address(this), fee);
         IERC20(underlying).safeApprove(feeRewardForwarder, 0);
         IERC20(underlying).safeApprove(feeRewardForwarder, fee);
         FeeRewardForwarder(feeRewardForwarder).poolNotifyFixedTarget(underlying, fee);
       }
-    }
+    }*/
 }

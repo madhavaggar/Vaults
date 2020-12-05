@@ -1,26 +1,21 @@
-process.env.TS_NODE_FILES = "true";
-require("ts-node/register/transpile-only");
-// Fix Typescript callsite reporting
-Object.defineProperty(Error, "prepareStackTrace", { writable: false });
-
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 module.exports = {
   compilers: {
     solc: {
-      version: "0.6.11",
+      version: "0.5.16",
       settings: {
-        optimizer: {
-          enabled: true,
-          runs: 10000,
-        },
-      },
-    },
+       optimizer: {
+         enabled: true,
+         runs: 150
+       },
+      }
+    }
   },
   networks: {
     development: {
       host: "localhost",
-      port: 8545,
+      port: 7545,
       network_id: "*",
     },
     mainnet: {

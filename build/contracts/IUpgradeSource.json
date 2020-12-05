@@ -1,0 +1,350 @@
+{
+  "contractName": "IUpgradeSource",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "shouldUpgrade",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "finalizeUpgrade",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"finalizeUpgrade\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"shouldUpgrade\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/madhav/Vaults/contracts/hardworkInterface/IUpgradeSource.sol\":\"IUpgradeSource\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":150},\"remappings\":[]},\"sources\":{\"/home/madhav/Vaults/contracts/hardworkInterface/IUpgradeSource.sol\":{\"keccak256\":\"0xac1c3fd3eb1271dd1ccc46c5440abbb2b1b94006cb3163cf0a54b63f1c412ffa\",\"urls\":[\"bzz-raw://22afd883423016d383913086400d78b0c7717c74b3756d9d604754399d763c64\",\"dweb:/ipfs/QmXGknuWmeWT8AmaTMaiuAdY2us6YpWZsRtqajpMT2fejL\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity 0.5.16;\n\ninterface IUpgradeSource {\n  function shouldUpgrade() external view returns (bool, address);\n  function finalizeUpgrade() external;\n}\n",
+  "sourcePath": "/home/madhav/Vaults/contracts/hardworkInterface/IUpgradeSource.sol",
+  "ast": {
+    "absolutePath": "/home/madhav/Vaults/contracts/hardworkInterface/IUpgradeSource.sol",
+    "exportedSymbols": {
+      "IUpgradeSource": [
+        5810
+      ]
+    },
+    "id": 5811,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5799,
+        "literals": [
+          "solidity",
+          "0.5",
+          ".16"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:24"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 5810,
+        "linearizedBaseContracts": [
+          5810
+        ],
+        "name": "IUpgradeSource",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 5806,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "shouldUpgrade",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5800,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "76:2:24"
+            },
+            "returnParameters": {
+              "id": 5805,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5802,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5806,
+                  "src": "102:4:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 5801,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "102:4:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5804,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5806,
+                  "src": "108:7:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5803,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "108:7:24",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "101:15:24"
+            },
+            "scope": 5810,
+            "src": "54:63:24",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 5809,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "finalizeUpgrade",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5807,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "144:2:24"
+            },
+            "returnParameters": {
+              "id": 5808,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "155:0:24"
+            },
+            "scope": 5810,
+            "src": "120:36:24",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5811,
+        "src": "25:133:24"
+      }
+    ],
+    "src": "0:159:24"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/madhav/Vaults/contracts/hardworkInterface/IUpgradeSource.sol",
+    "exportedSymbols": {
+      "IUpgradeSource": [
+        5810
+      ]
+    },
+    "id": 5811,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5799,
+        "literals": [
+          "solidity",
+          "0.5",
+          ".16"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:24"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 5810,
+        "linearizedBaseContracts": [
+          5810
+        ],
+        "name": "IUpgradeSource",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 5806,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "shouldUpgrade",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5800,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "76:2:24"
+            },
+            "returnParameters": {
+              "id": 5805,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5802,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5806,
+                  "src": "102:4:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 5801,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "102:4:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5804,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5806,
+                  "src": "108:7:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5803,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "108:7:24",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "101:15:24"
+            },
+            "scope": 5810,
+            "src": "54:63:24",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 5809,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "finalizeUpgrade",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5807,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "144:2:24"
+            },
+            "returnParameters": {
+              "id": 5808,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "155:0:24"
+            },
+            "scope": 5810,
+            "src": "120:36:24",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5811,
+        "src": "25:133:24"
+      }
+    ],
+    "src": "0:159:24"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-12-05T16:27:34.940Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
