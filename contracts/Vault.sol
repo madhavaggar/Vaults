@@ -111,6 +111,7 @@ contract Vault is ERC20, ERC20Detailed, IVault, IUpgradeSource, ControllableInit
   * Chooses the best strategy and re-invests. If the strategy did not change, it just calls
   * doHardWork on the current strategy. Call this through controller to claim hard rewards.
   */
+  
   function doHardWork() external whenStrategyDefined onlyControllerOrGovernance {
     if (_withdrawBeforeReinvesting()) {
       IStrategy(strategy()).withdrawAllToVault();

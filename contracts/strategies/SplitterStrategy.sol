@@ -30,10 +30,10 @@ contract SplitterStrategy is IStrategy, Controllable {
   address[] public withdrawalOrder;
 
   address public futureStrategy;
-  //uint256 public strategyWhitelistTime;
+  uint256 public strategyWhitelistTime;
 
   uint256 public investmentRatioDenominator = 10000;
-  //uint256 public whitelistStrategyTimeLock = 12 hours;
+  uint256 public whitelistStrategyTimeLock = 12 hours;
   bool public isInitialized = false;
 
   event StrategyWhitelisted(
@@ -203,7 +203,25 @@ contract SplitterStrategy is IStrategy, Controllable {
       IERC20(underlying).safeTransfer(vault, actualBalance);
     }
   }
-
+  
+  
+  /*
+  * Create a rebalance function in order to calculate revised ROI 
+  * This function is called every 6-10 hours. 
+  function rebalance_roi(){
+      
+      for (uint256 i = 0; i < withdrawalOrder.length; i++) {
+        uint256 strategyBalance = IStrategy(withdrawalOrder[i]).investedUnderlyingBalance();
+        
+        // Calculate present ROI and compare it with expected predefined ROI value
+        // Calculate strategy rebalance amount which is uint256 r_amount
+        // Based on differences between expected and actual rebalance. r_amount>0 if !=
+        // Extract and deposit using safetransfer to the respective pools
+        
+      }
+  }
+  */
+  
   /*
   * Cashes some amount out and withdraws to the vault
   */
@@ -245,9 +263,9 @@ contract SplitterStrategy is IStrategy, Controllable {
     IStrategy(_strategy).doHardWork();
   }
 
-  /*function _setStrategyWhitelistTime(uint256 _strategyWhitelistTime) internal {
+  function _setStrategyWhitelistTime(uint256 _strategyWhitelistTime) internal {
     strategyWhitelistTime = _strategyWhitelistTime;
-  }*/
+  }
 
   function _setFutureStrategy(address _futureStrategy) internal {
     futureStrategy = _futureStrategy;
@@ -258,9 +276,9 @@ contract SplitterStrategy is IStrategy, Controllable {
   }
 
   function canWhitelistStrategy(address _strategy) public view returns (bool) {
-    return (_strategy == futureStrategy);
-      //&& block.timestamp > strategyWhitelistTime
-      //&& strategyWhitelistTime > 0); // or the timelock has passed
+    return (_strategy == futureStrategy
+      && block.timestamp > strategyWhitelistTime
+      && strategyWhitelistTime > 0); // or the timelock has passed
   }
 
   /**
@@ -272,17 +290,17 @@ contract SplitterStrategy is IStrategy, Controllable {
     require(IStrategy(_strategy).vault() == address(this), "The strategy does not belong to this splitter");
 
     // records a new timestamp
-    //uint256 when = block.timestamp.add(whitelistStrategyTimeLock);
-    //_setStrategyWhitelistTime(when);
+    uint256 when = block.timestamp.add(whitelistStrategyTimeLock);
+    _setStrategyWhitelistTime(when);
     _setFutureStrategy(_strategy);
-    //emit StrategyWhitelistAnnounced(_strategy, when);
+    emit StrategyWhitelistAnnounced(_strategy, when);
   }
 
   /**
   * Finalizes (or cancels) the strategy update by resetting the data
   */
   function finalizeStrategyWhitelist() public onlyGovernance {
-    //_setStrategyWhitelistTime(0);
+    _setStrategyWhitelistTime(0);
     _setFutureStrategy(address(0));
   }
 
@@ -317,7 +335,7 @@ contract SplitterStrategy is IStrategy, Controllable {
   */
   function whitelistStrategy(address _strategy) public onlyGovernance {
     require(canWhitelistStrategy(_strategy),
-      "The strategy exists");
+      "The strategy exists and switch timelock did not elapse yet");
 
     require(_strategy != address(0), "_strategy cannot be 0x0");
     require(IStrategy(_strategy).underlying() == address(underlying), "Underlying of splitter must match Strategy underlying");

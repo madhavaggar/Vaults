@@ -5366,7 +5366,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 19051,
+                            "referencedDeclaration": 18999,
                             "src": "4737:4:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_Vault_$3947",
@@ -9261,7 +9261,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 19051,
+                              "referencedDeclaration": 18999,
                               "src": "7900:4:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_Vault_$3947",
@@ -16698,7 +16698,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 19051,
+                            "referencedDeclaration": 18999,
                             "src": "13666:4:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_Vault_$3947",
@@ -22798,7 +22798,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 19051,
+                            "referencedDeclaration": 18999,
                             "src": "4737:4:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_Vault_$3947",
@@ -26693,7 +26693,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 19051,
+                              "referencedDeclaration": 18999,
                               "src": "7900:4:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_Vault_$3947",
@@ -34130,7 +34130,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 19051,
+                            "referencedDeclaration": 18999,
                             "src": "13666:4:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_Vault_$3947",
@@ -35960,7 +35960,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-12-05T16:27:34.868Z",
+  "updatedAt": "2020-12-07T16:16:44.064Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {
